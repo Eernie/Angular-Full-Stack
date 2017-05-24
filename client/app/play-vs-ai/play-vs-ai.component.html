@@ -1,2 +1,2 @@
 
-<othello-board-component [observableBoard]="board"></othello-board-component>
+<othello-board-component [observableBoard]="board" [playersTurn]="playersTurn" (events)="move($event)"></othello-board-component>

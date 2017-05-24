@@ -7,7 +7,7 @@
           <div class="col-xs-1 cell" *ngIf="cell >= 0" >
             <div class="player-{{cell}}" *ngIf="cell > 0"></div>
           </div>
-          <div class="col-xs-1 cell possible-set" *ngIf="cell < 0" (click)="play(x,y)"></div>
+          <div class="col-xs-1 cell" [class.possible-set]="playersTurn === user" *ngIf="cell < 0" (click)="play(x,y)"></div>
 
         </ng-container>
       </div>

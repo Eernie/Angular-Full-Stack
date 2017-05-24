@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Game } from '../services/models/game.model';
+import { Room } from '../services/models/room.model';
 
 
 @Component({
@@ -11,20 +12,19 @@ import { Game } from '../services/models/game.model';
 export class OthelloBoardComponent implements OnInit {
 
   @Input() private observableBoard: Observable<Number[][]>;
-  @Input() private game: Game;
+  @Input() private playersTurn;
+  @Output() private events = new EventEmitter<[number, number]>();
 
   private board: Number[][];
   private user = 1;
 
-
-
   ngOnInit(): void {
-    this.observableBoard.map(board => this.addPossibleSteps(board))
-      .subscribe(board =>  this.board = board);
+    this.observableBoard.filter(board => !!board).map(board => this.addPossibleSteps(board))
+      .subscribe(board => this.board = board);
   }
 
   private play(x: number, y: number): void {
-    console.log(`Playing ${x},${y}`);
+    this.events.next([x, y]);
   }
 
   private addPossibleSteps(board: Number[][]): Number[][] {
