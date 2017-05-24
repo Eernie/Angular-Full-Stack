@@ -1,0 +1,16 @@
+<div class="row center-xs">
+  <md-card *ngIf="board" class="col-xs-6">
+    <md-card-content>
+      <h3>You're playing as black</h3>
+      <div class="row center-xs" *ngFor="let row of board;  let x = index">
+        <ng-container *ngFor="let cell of row;  let y = index">
+          <div class="col-xs-1 cell" *ngIf="cell >= 0" >
+            <div class="player-{{cell}}" *ngIf="cell > 0"></div>
+          </div>
+          <div class="col-xs-1 cell possible-set" *ngIf="cell < 0" (click)="play(x,y)"></div>
+
+        </ng-container>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

@@ -1,0 +1,42 @@
+@mixin circle($size: 20px) {
+  width: $size;
+  height: $size;
+  position: relative;
+
+  -webkit-border-radius: $size / 2 + 0px;
+  -moz-border-radius: $size / 2 + 0px;
+  border-radius: $size / 2 + 0px;
+  border: 1px solid black;
+
+  & > div, span {
+    width: $size - $size*0.3;
+    height: $size - $size*0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.player-1 {
+  @include circle(50px);
+  background: black;
+}
+
+.player-2 {
+  @include circle(50px);
+  background: white;
+}
+
+.cell {
+  padding-top: 10px;
+  height: 70px;
+  border: 1px solid gray;
+
+  &.possible-set{
+    border: 1px solid red;
+  }
+}

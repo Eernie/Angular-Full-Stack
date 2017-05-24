@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
+@import '~reset-css/reset.css';
+@import '~flexboxgrid-sass';
 
-.input-group {
-  margin-bottom: 15px;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber';
+
+
+body{
+  background-color: #424242;
 }

@@ -47,7 +47,7 @@ abstract class BaseCtrl {
       if (err) { return console.error(err); }
       res.sendStatus(200);
     });
-  }
+  };
 
   // Delete by id
   delete = (req, res) => {

@@ -32,7 +32,7 @@ db.once('open', () => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
 
-  app.listen(app.get('port'), () => {
+  app.listen(app.get('port'), '0.0.0.0', () => {
     console.log('Angular Full Stack listening on port ' + app.get('port'));
   });
 

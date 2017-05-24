@@ -3,43 +3,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
-import { CatService } from './services/cat.service';
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardLogin } from './services/auth-guard-login.service';
-import { AuthGuardAdmin } from './services/auth-guard-admin.service';
+import { GameService } from './services/game.service';
 import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { AboutComponent } from './about/about.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AccountComponent } from './account/account.component';
-import { AdminComponent } from './admin/admin.component';
+import { GamesComponent } from './games/games.component';
+import { OthelloMaterialModule } from './shared/othello-mat.module';
+import { PlayVsAiComponent } from './play-vs-ai/play-vs-ai.component';
+import { OthelloBoardComponent } from './othello-board/othello-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatsComponent,
-    AboutComponent,
-    RegisterComponent,
-    LoginComponent,
-    LogoutComponent,
-    AccountComponent,
-    AdminComponent
+    GamesComponent,
+    PlayVsAiComponent,
+    OthelloBoardComponent
   ],
   imports: [
     RoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    OthelloMaterialModule
   ],
   providers: [
-    AuthService,
-    AuthGuardLogin,
-    AuthGuardAdmin,
-    CatService,
-    UserService
+    GameService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
